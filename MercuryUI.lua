@@ -57,17 +57,18 @@ Mercury={_instances={}} do
 						Name = "TitleBar",
 						BackgroundColor3 = config.color.accent,
 						BorderSizePixel = 0,
-						Size = UDim2.new(1, 0, 30, 0),
+						Size = UDim2.new(1, 0, 0, 30),
 						New"UIPadding"{
 							Name = "Margin",
 							PaddingLeft = UDim.new(15, 0),
 							PaddingRight = UDim.new(15, 0)
 						},
 						New"TextLabel"{
-							Name = "Title",
+                            Name = "Title",
+                            Size = UDim2.new(1, 0, 0, 30),
 							Text = config.title,
 							TextColor3 = config.color.title,
-							TextSize = 26,
+                            TextSize = 30,
 							[New]=function(this)if config.font then Fonts._GEN.Replace(config.font, this)end end
 						}
 					}
