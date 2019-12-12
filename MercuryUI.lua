@@ -69,7 +69,7 @@ Mercury={_instances={}} do
                             BackgroundTransparency = 1,
 							Text = config.title,
 							TextColor3 = config.color.title,
-                            TextSize = 30,
+                            TextSize = 32,
 							[New]=function(this)if config.font then Fonts._GEN.Replace(config.font, this)end end
 						}
 					}
