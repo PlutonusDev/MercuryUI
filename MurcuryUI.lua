@@ -21,14 +21,3 @@ local Mercury do
         end
     }
 end
-
-_New"ScreenGui"{
-    Parent = game:GetService"Players".LocalPlayer.PlayerGui,
-    _New"Frame"{
-        [_New] = function(this)gui=this end
-    }
-}
-
-label = Fonts._GEN.Label["milkshake"]
-label.Parent = gui
-label.text = "Hello!"
