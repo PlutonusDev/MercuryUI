@@ -29,7 +29,7 @@ Mercury={_instances={}} do
 				background = Color3.fromRGB(40, 40, 40),
 				accent = Color3.fromRGB(30, 30, 30),
 				border = Color3.fromRGB(255, 255, 255),
-				title = Color3.fromRGB(100, 220, 230),
+				title = Color3.fromRGB(240, 240, 240),
 				label = Color3.fromRGB(230, 230, 230)
 			},
             title = "New Window",
