@@ -68,7 +68,7 @@ Mercury={_instances={}} do
 				[New]=function(this)config._link=this end
             }
             local label = Fonts._GEN.Label(config.font)
-            label.Parent = config._link.TitleBar
+            label.Parent = config._link.MainFrame.TitleBar
             label._background.BackgroundTransparency = 1
 			return config
         end
