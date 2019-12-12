@@ -62,21 +62,14 @@ Mercury={_instances={}} do
 							Name = "Margin",
 							PaddingLeft = UDim.new(0, 15),
 							PaddingRight = UDim.new(0, 15)
-						},
-						New"TextLabel"{
-                            Name = "Title",
-                            Position = UDim2.new(0, 0, 0, 3),
-                            Size = UDim2.new(0, 0, 0, 30),
-                            BackgroundTransparency = 1,
-							Text = config.title,
-							TextColor3 = config.color.title,
-                            TextSize = 24,
-							[New]=function(this)if config.font then this = Fonts._GEN.Replace(config.font, this) end end
 						}
 					}
 				},
 				[New]=function(this)config._link=this end
-			}
+            }
+            local label = Fonts._GEN.Label(config.font)
+            label.Parent = config._link.TitleBar
+            label._background.BackgroundTransparency = 1
 			return config
         end
     }
