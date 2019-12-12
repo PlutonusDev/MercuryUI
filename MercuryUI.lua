@@ -66,6 +66,7 @@ Mercury={_instances={}} do
 						New"TextLabel"{
                             Name = "Title",
                             Size = UDim2.new(1, 0, 0, 30),
+                            BackgroundTransparency = 1,
 							Text = config.title,
 							TextColor3 = config.color.title,
                             TextSize = 30,
