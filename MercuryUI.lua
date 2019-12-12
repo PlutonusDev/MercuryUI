@@ -34,7 +34,7 @@ Mercury={_instances={}} do
 			},
             title = "New Window",
             font = "milkshake",
-            _dev = {}
+            _dev = {},
 			_tabs = {},
 			_link = nil
         },
