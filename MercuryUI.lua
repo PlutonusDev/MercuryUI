@@ -139,7 +139,7 @@ Mercury={_instances={}} do
                                     BackgroundTransparency = 1,
                                     Image = "rbxassetid://4317835953"
                                 },
-                                New"Label"{
+                                New"TextLabel"{
                                     Name = "Label",
                                     Size = UDim2.new(0, 0, 0, 25),
                                     BackgroundTransparency = 1,
@@ -155,7 +155,7 @@ Mercury={_instances={}} do
                                 }
                             }
                         else
-                            New"Label"{
+                            New"TextLabel"{
                                 Name = "Label",
                                 Size = UDim2.new(0, 0, 0, 25),
                                 BackgroundTransparency = 1,
