@@ -97,7 +97,7 @@ Mercury={_instances={}} do
                     New"Frame"{
                         Name = "HorizontalRule",
                         Position = UDim2.new(0, 0, 0, 30),
-                        Size = UDim2.new(1, 0, 0, 2),
+                        Size = UDim2.new(1, 0, 0, 1),
                         BackgroundColor3 = config.color.border,
                         BorderSizePixel = 0,
                         ZIndex = 3
@@ -105,7 +105,7 @@ Mercury={_instances={}} do
                     New"Frame"{
                         Name = "VerticalRule",
                         Position = UDim2.new(.2, 0, 0, 30),
-                        Size = UDim2.new(0, 2, 1, -30),
+                        Size = UDim2.new(0, 1, 1, -30),
                         BackgroundColor3 = config.color.border,
                         BorderSizePixel = 0,
                         ZIndex = 3
@@ -124,7 +124,8 @@ Mercury={_instances={}} do
                     [New]=function(this)
                         if config.dropdown then
                             New"UIListLayout"{
-                                Name = "DisplayLayout"
+                                Name = "DisplayLayout",
+                                Parent = this
                             }
                             New"Frame"{
                                 Name = "Content",
@@ -147,26 +148,26 @@ Mercury={_instances={}} do
                                     TextColor3 = self.color.title,
                                     TextSize = 14,
                                     TextXAlignment = Enum.TextXAlignment.Left,
-                                    [New]=function(this)if config.font then this = Fonts._GEN.Replace(config.font, this) end end,
-                                    New"UIPadding"{
-                                        Name = "Margin",
-                                        PaddingLeft = UDim.new(0, 15)
-                                    }
+                                    [New]=function(this)if config.font then this = Fonts._GEN.Replace(config.font, this) end end
                                 }
                             }
                         else
-                            New"TextLabel"{
-                                Name = "Label",
-                                Size = UDim2.new(0, 0, 0, 25),
+                            New"Frame"{
+                                Name = "Content",
+                                Parent = this,
                                 BackgroundTransparency = 1,
-                                Text = config.title,
-                                TextColor3 = self.color.title,
-                                TextSize = 14,
-                                TextXAlignment = Enum.TextXAlignment.Left,
-                                [New]=function(this)if config.font then this = Fonts._GEN.Replace(config.font, this) end end,
-                                New"UIPadding"{
-                                    Name = "Margin",
-                                    PaddingLeft = UDim.new(0, 15)
+                                Size = UDim2.new(1, 0, 0, 20),
+                                New"TextLabel"{
+                                    Name = "Label",
+                                    Parent = this,
+                                    Position = UDim2.new(0, 0, 0, 15),
+                                    Size = UDim2.new(0, 0, 0, 25),
+                                    BackgroundTransparency = 1,
+                                    Text = config.title,
+                                    TextColor3 = self.color.title,
+                                    TextSize = 14,
+                                    TextXAlignment = Enum.TextXAlignment.Left,
+                                    [New]=function(this)if config.font then this = Fonts._GEN.Replace(config.font, this) end end
                                 }
                             }
                         end
