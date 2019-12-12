@@ -93,7 +93,7 @@ Mercury={_instances={}} do
                         Position = UDim2.new(0, 0, 0, 30),
                         Size = UDim2.new(.2, 0, 1, -30),
                         BackgroundTransparency = 0.8,
-                        BackgroundColor3 = config.color.background,,
+                        BackgroundColor3 = config.color.background,
                         BorderSizePixel = 0,
                         ZIndex = 2
                     },
