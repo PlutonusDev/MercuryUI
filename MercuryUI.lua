@@ -41,7 +41,6 @@ Mercury={_instances={}} do
         new = function(config)
 			config = config or {}
             setmetatable(config,{__index=Mercury.Window.prototype})
-			print(config.xloc)
 			New"ScreenGui"{
 				Name = config.title,
 				Parent = config._dev.plr and game:GetService("Players"):WaitForChild(config._dev.plr).PlayerGui or game:GetService("Players").LocalPlayer,
