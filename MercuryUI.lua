@@ -101,15 +101,15 @@ Mercury={_instances={}} do
                         Name = "HorizontalRule",
                         Position = UDim2.new(0, 0, 0, 30),
                         Size = UDim2.new(1, 0, 0, 2),
-                        BackgroundColor3 = config.color.accent,
+                        BackgroundColor3 = config.color.title,
                         BorderSizePixel = 0,
                         ZIndex = 3
                     },
                     New"Frame"{
                         Name = "VerticalRule",
                         Position = UDim2.new(.2, 0, 0, 30),
-                        Size = UDim2.new(0, 2, 1, 0),
-                        BackgroundColor3 = config.color.accent,
+                        Size = UDim2.new(0, 2, 1, -30),
+                        BackgroundColor3 = config.color.title,
                         BorderSizePixel = 0,
                         ZIndex = 3
                     }
