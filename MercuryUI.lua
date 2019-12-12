@@ -31,20 +31,20 @@ Mercury={_instances={}} do
 			color = {
 				background = Color3.fromRGB(40, 40, 40),
 				accent = Color3.fromRGB(30, 30, 30),
-				border = Color3.fromRGB(255, 255, 255),
+				border = Color3.fromRGB(170, 170, 170),
 				title = Color3.fromRGB(240, 240, 240),
 				label = Color3.fromRGB(230, 230, 230)
 			},
             title = "New Window",
             font = "akashi",
             _dev = {},
-			_tabs = {},
+            _pages = {},
+            _cpage = nil,
 			_link = nil
         },
         new = function(config)
 			config = config or {}
             setmetatable(config,{__index=Mercury.Window.prototype})
-			print(config.xloc)
 			New"ScreenGui"{
 				Name = config.title,
 				Parent = config._dev.plr and game:GetService("Players"):WaitForChild(config._dev.plr).PlayerGui or game:GetService("Players").LocalPlayer,
@@ -56,16 +56,6 @@ Mercury={_instances={}} do
 					BorderColor3 = config.color.border,
 					Position = UDim2.new(config.dim.xloc, 0, config.dim.yloc, 0),
                     Size = UDim2.new(config.dim.xlen, 0, config.dim.ylen, 0),
-                    New"ImageLabel"{
-                        Name = "Background",
-                        BackgroundTransparency = 1,
-                        Position = UDim2.new(-.5, 0, -.5, 0),
-                        Size = UDim2.new(2, 0, 2, 0),
-                        Image = "rbxassetid://4301914268",
-                        ImageColor3 = config.color.background,
-                        ImageTransparency = 0.8,
-                        TileSize = UDim2.new(0, 500, 0, 500)
-                    },
 					New"Frame"{
 						Name = "TitleBar",
 						BackgroundColor3 = config.color.accent,
@@ -89,19 +79,26 @@ Mercury={_instances={}} do
                         }
                     },
                     New"Frame"{
-                        Name = "Sidebar",
+                        Name = "SideBar",
                         Position = UDim2.new(0, 0, 0, 30),
                         Size = UDim2.new(.2, 0, 1, -30),
                         BackgroundTransparency = 0.8,
                         BackgroundColor3 = config.color.background,
                         BorderSizePixel = 0,
-                        ZIndex = 2
+                        ZIndex = 2,
+                        New"UIListLayout"{
+                            Name = "DisplayLayout"
+                        },
+                        New"UIPadding"{
+                            Name = "Margin",
+                            PaddingTop = UDim.new(0, 5)
+                        }
                     },
                     New"Frame"{
                         Name = "HorizontalRule",
                         Position = UDim2.new(0, 0, 0, 30),
                         Size = UDim2.new(1, 0, 0, 2),
-                        BackgroundColor3 = config.color.title,
+                        BackgroundColor3 = config.color.border,
                         BorderSizePixel = 0,
                         ZIndex = 3
                     },
@@ -109,14 +106,82 @@ Mercury={_instances={}} do
                         Name = "VerticalRule",
                         Position = UDim2.new(.2, 0, 0, 30),
                         Size = UDim2.new(0, 2, 1, -30),
-                        BackgroundColor3 = config.color.title,
+                        BackgroundColor3 = config.color.border,
                         BorderSizePixel = 0,
                         ZIndex = 3
                     }
 				},
 				[New]=function(this)config._link=this end
-			}
+            }
+            function config:addPage(config)
+                config = config or {}
+                setmetatable(config,{__index=Mercury.Page.prototype})
+                New"Frame"{
+                    Name = config.title,
+                    Parent = self._link.MainFrame.SideBar,
+                    BackgroundTransparency = 1,
+                    Size = UDim2.new(1, 0, 0, 20),
+                    [New]=function(this)
+                        if config.dropdown then
+                            New"UIListLayout"{
+                                Name = "DisplayLayout"
+                            }
+                            New"Frame"{
+                                Name = "Content",
+                                Parent = this,
+                                BackgroundTransparency = 1,
+                                Size = UDim2.new(1, 0, 0, 20),
+                                New"ImageLabel"{
+                                    Name = "Dropdown",
+                                    AnchorPoint = Vector2.new(0, .5),
+                                    Position = UDim2.new(0, 2, .5, 0),
+                                    Size = UDim2.new(0, 8, 0, 8),
+                                    BackgroundTransparency = 1,
+                                    Image = "rbxassetid://4317835953"
+                                },
+                                New"Label"{
+                                    Name = "Label",
+                                    Size = UDim2.new(0, 0, 0, 25),
+                                    BackgroundTransparency = 1,
+                                    Text = config.title,
+                                    TextColor3 = self.color.title,
+                                    TextSize = 18,
+                                    TextXAlignment = Enum.TextXAlignment.Left,
+                                    [New]=function(this)if config.font then this = Fonts._GEN.Replace(config.font, this) end end,
+                                    New"UIPadding"{
+                                        Name = "Margin",
+                                        PaddingLeft = UDim.new(0, 15)
+                                    }
+                                }
+                            }
+                        else
+                            new"Label"{
+                                Name = "Label",
+                                Size = UDim2.new(0, 0, 0, 25),
+                                BackgroundTransparency = 1,
+                                Text = config.title,
+                                TextColor3 = self.color.title,
+                                TextSize = 18,
+                                TextXAlignment = Enum.TextXAlignment.Left,
+                                [New]=function(this)if config.font then this = Fonts._GEN.Replace(config.font, this) end end,
+                                New"UIPadding"{
+                                    Name = "Margin",
+                                    PaddingLeft = UDim.new(0, 15)
+                                }
+                            }
+                        end
+                    end
+                }
+            end
 			return config
         end
+    }
+    Mercury.Page = {
+        prototype = {
+            title = "New Page",
+            font = "akashi",
+            dropdown = false,
+            _tabs = {}
+        }
     }
 end
