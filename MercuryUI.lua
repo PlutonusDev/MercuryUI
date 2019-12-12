@@ -59,10 +59,11 @@ Mercury={_instances={}} do
                     New"ImageLabel"{
                         Name = "Background",
                         BackgroundTransparency = 1,
-                        Size = UDim2.new(1, 0, 1, 0),
+                        Position = UDim2.new(-.5, 0, -.5, 0),
+                        Size = UDim2.new(2, 0, 2, 0),
                         Image = "rbxassetid://4301914268",
                         ImageColor3 = config.color.background,
-                        ImageTransparency = 0.9,
+                        ImageTransparency = 0.8,
                         TileSize = UDim2.new(0, 500, 0, 500)
                     },
 					New"Frame"{
@@ -86,7 +87,32 @@ Mercury={_instances={}} do
                             TextXAlignment = Enum.TextXAlignment.Left,
 							[New]=function(this)if config.font then this = Fonts._GEN.Replace(config.font, this) end end
                         }
-					}
+                    },
+                    New"Frame"{
+                        Name = "Sidebar",
+                        Position = UDim2.new(0, 0, 0, 30),
+                        Size = UDim2.new(.2, 0, 1, -30),
+                        BackgroundTransparency = 0.8,
+                        BackgroundColor3 = config.color.background,,
+                        BorderSizePixel = 0,
+                        ZIndex = 2
+                    },
+                    New"Frame"{
+                        Name = "HorizontalRule",
+                        Position = UDim2.new(0, 0, 0, 30),
+                        Size = UDim2.new(1, 0, 0, 2),
+                        BackgroundColor3 = config.color.accent,
+                        BorderSizePixel = 0,
+                        ZIndex = 3
+                    },
+                    New"Frame"{
+                        Name = "VerticalRule",
+                        Position = UDim2.new(.2, 0, 0, 30),
+                        Size = UDim2.new(0, 2, 1, 0),
+                        BackgroundColor3 = config.color.accent,
+                        BorderSizePixel = 0,
+                        ZIndex = 3
+                    }
 				},
 				[New]=function(this)config._link=this end
 			}
