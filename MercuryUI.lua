@@ -67,7 +67,7 @@ Mercury={_instances={}} do
 				[New]=function(this)config._link=this end
             }
             local label = Fonts._GEN.Label(config.font)
-            label:Revert()
+            label = label:Revert()
             label.Parent = config._link.MainFrame.TitleBar
             label.BackgroundTransparency = 1
             label.TextColor3 = config.color.title
