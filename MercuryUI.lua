@@ -145,7 +145,7 @@ Mercury={_instances={}} do
                                     BackgroundTransparency = 1,
                                     Text = config.title,
                                     TextColor3 = self.color.title,
-                                    TextSize = 18,
+                                    TextSize = 14,
                                     TextXAlignment = Enum.TextXAlignment.Left,
                                     [New]=function(this)if config.font then this = Fonts._GEN.Replace(config.font, this) end end,
                                     New"UIPadding"{
@@ -161,7 +161,7 @@ Mercury={_instances={}} do
                                 BackgroundTransparency = 1,
                                 Text = config.title,
                                 TextColor3 = self.color.title,
-                                TextSize = 18,
+                                TextSize = 14,
                                 TextXAlignment = Enum.TextXAlignment.Left,
                                 [New]=function(this)if config.font then this = Fonts._GEN.Replace(config.font, this) end end,
                                 New"UIPadding"{
