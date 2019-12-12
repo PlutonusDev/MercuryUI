@@ -7,7 +7,7 @@ local Fonts={} do
 end
 
 local Mercury={} do
-    Murcury.Window = {
+    Mercury.Window = {
         prototype = {
             data = {
                 xloc = 0,
