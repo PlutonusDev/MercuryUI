@@ -60,8 +60,8 @@ Mercury={_instances={}} do
 						Size = UDim2.new(1, 0, 30, 0),
 						New"UIPadding"{
 							Name = "Margin",
-							PaddingLeft = Vector2.new(15, 0),
-							PaddingRight = Vector2.new(15, 0)
+							PaddingLeft = UDim.new(15, 0),
+							PaddingRight = UDim.new(15, 0)
 						},
 						New"TextLabel"{
 							Name = "Title",
