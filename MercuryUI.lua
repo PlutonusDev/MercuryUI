@@ -155,7 +155,7 @@ Mercury={_instances={}} do
                                 }
                             }
                         else
-                            new"Label"{
+                            New"Label"{
                                 Name = "Label",
                                 Size = UDim2.new(0, 0, 0, 25),
                                 BackgroundTransparency = 1,
