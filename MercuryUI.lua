@@ -148,14 +148,16 @@ Mercury={_instances={}} do
                                     Size = UDim2.new(0, 8, 0, 8),
                                     BackgroundTransparency = 1,
                                     Image = "rbxassetid://4317835953",
-                                    [Event"MouseButton1Click"]=function(this)
-                                        if config._open then
-                                            t.Create(this, new TweenInfo(0.7, Enum.EasingStyle.Back, Enum.EasingDirection.In),{Rotation=90}):Play()
-                                            t.Create(this.Parent, new TweenInfo(0.7, Enum.EasingStyle.Back, Enum.EasingDirection.In),{Size=UDim2.new(1, 0, 0, 20)}):Play()
-                                        else
-                                            t.Create(this, new TweenInfo(0.7, Enum.EasingStyle.Back, Enum.EasingDirection.Out),{Rotation=90}):Play()
-                                            t.Create(this.Parent, new TweenInfo(0.7, Enum.EasingStyle.Back, Enum.EasingDirection.Out),{Size=UDim2.new(1, 0, 0, tcount(config._items)*20+20)}):Play()
-                                        end
+                                    [New]=function(this)
+                                        this.MouseButton1Click:connect(function()
+                                            if config._open then
+                                                t.Create(this, new TweenInfo(0.7, Enum.EasingStyle.Back, Enum.EasingDirection.In),{Rotation=0}):Play()
+                                                t.Create(this.Parent, new TweenInfo(0.7, Enum.EasingStyle.Back, Enum.EasingDirection.In),{Size=UDim2.new(1, 0, 0, 20)}):Play()
+                                            else
+                                                t.Create(this, new TweenInfo(0.7, Enum.EasingStyle.Back, Enum.EasingDirection.Out),{Rotation=90}):Play()
+                                                t.Create(this.Parent, new TweenInfo(0.7, Enum.EasingStyle.Back, Enum.EasingDirection.Out),{Size=UDim2.new(1, 0, 0, tcount(config._items)*20+20)}):Play()
+                                            end
+                                        end)
                                     end
                                 },
                                 New"TextLabel"{
@@ -202,7 +204,7 @@ Mercury={_instances={}} do
             title = "New Page",
             font = "akashi",
             dropdown = false,
-            _open = {},
+            _open = false,
             _items = {},
             _tabs = {},
             _link = nil
