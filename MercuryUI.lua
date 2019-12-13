@@ -95,7 +95,7 @@ Mercury={_instances={}} do
                         ZIndex = 2,
                         New"UIListLayout"{
                             Name = "DisplayLayout",
-                            Padding = UDim.new(0, 5)
+                            Padding = UDim.new(0, 3)
                         },
                         New"UIPadding"{
                             Name = "Margin",
@@ -145,7 +145,7 @@ Mercury={_instances={}} do
                                 BackgroundColor3 = self.color.accent,
                                 Text = "",
                                 BorderSizePixel = 0,
-                                Size = UDim2.new(1, 0, 0, 20),
+                                Size = UDim2.new(1, 0, 0, 25),
                                 New"ImageLabel"{
                                     Name = "Dropdown",
                                     AnchorPoint = Vector2.new(0, .5),
@@ -161,7 +161,7 @@ Mercury={_instances={}} do
                                     BackgroundTransparency = 1,
                                     Text = config.title,
                                     TextColor3 = self.color.title,
-                                    TextSize = 12,
+                                    TextSize = 14,
                                     TextXAlignment = Enum.TextXAlignment.Left,
                                     [New]=function(this)if config.font then this = Fonts._GEN.Replace(config.font, this) end end
                                 },
@@ -193,7 +193,7 @@ Mercury={_instances={}} do
                                 BackgroundColor3 = self.color.accent,
                                 Text = "",
                                 BorderSizePixel = 0,
-                                Size = UDim2.new(1, 0, 0, 20),
+                                Size = UDim2.new(1, 0, 0, 25),
                                 New"TextLabel"{
                                     Name = "Label",
                                     Parent = this,
@@ -202,7 +202,7 @@ Mercury={_instances={}} do
                                     BackgroundTransparency = 1,
                                     Text = config.title,
                                     TextColor3 = self.color.title,
-                                    TextSize = 12,
+                                    TextSize = 14,
                                     TextXAlignment = Enum.TextXAlignment.Left,
                                     [New]=function(this)if config.font then this = Fonts._GEN.Replace(config.font, this) end end
                                 }
@@ -227,7 +227,7 @@ Mercury={_instances={}} do
                             BackgroundColor3 = config._link._link.color.accent,
                             Text = "",
                             BorderSizePixel = 0,
-                            Size = UDim2.new(1, 0, 0, 20),
+                            Size = UDim2.new(1, 0, 0, 25),
                             New"TextLabel"{
                                 Name = "Label",
                                 Position = UDim2.new(0, 15, 0, -2),
@@ -235,7 +235,7 @@ Mercury={_instances={}} do
                                 BackgroundTransparency = 1,
                                 Text = config.title,
                                 TextColor3 = config._link._link.color.title,
-                                TextSize = 12,
+                                TextSize = 14,
                                 TextXAlignment = Enum.TextXAlignment.Left,
                                 [New]=function(this)if config.font then this = Fonts._GEN.Replace(config.font, this) end end
                             }
