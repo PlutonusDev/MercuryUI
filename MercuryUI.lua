@@ -134,7 +134,7 @@ Mercury={_instances={}} do
                             New"UIListLayout"{
                                 Name = "DisplayLayout",
                                 Parent = this
-                            },
+                            }
                             New"Frame"{
                                 Name = "Content",
                                 Parent = this,
@@ -163,11 +163,11 @@ Mercury={_instances={}} do
                                 [New]=function(this)
                                     this.MouseButton1Click:connect(function()
                                         if config._open then
-                                            t:Create(this.Dropdown, new TweenInfo(0.7, Enum.EasingStyle.Back, Enum.EasingDirection.In),{Rotation=0}):Play()
-                                            t:Create(this, new TweenInfo(0.7, Enum.EasingStyle.Back, Enum.EasingDirection.In),{Size=UDim2.new(1, 0, 0, 20)}):Play()
+                                            t:Create(this.Dropdown, TweenInfo.New(0.7, Enum.EasingStyle.Back, Enum.EasingDirection.In),{Rotation=0}):Play()
+                                            t:Create(this, TweenInfo.New(0.7, Enum.EasingStyle.Back, Enum.EasingDirection.In),{Size=UDim2.new(1, 0, 0, 20)}):Play()
                                         else
-                                            t:Create(this.Dropdown, new TweenInfo(0.7, Enum.EasingStyle.Back, Enum.EasingDirection.Out),{Rotation=90}):Play()
-                                            t:Create(this, new TweenInfo(0.7, Enum.EasingStyle.Back, Enum.EasingDirection.Out),{Size=UDim2.new(1, 0, 0, tcount(config._items)*20+20)}):Play()
+                                            t:Create(this.Dropdown, TweenInfo.New(0.7, Enum.EasingStyle.Back, Enum.EasingDirection.Out),{Rotation=90}):Play()
+                                            t:Create(this, TweenInfo.New(0.7, Enum.EasingStyle.Back, Enum.EasingDirection.Out),{Size=UDim2.new(1, 0, 0, tcount(config._items)*20+20)}):Play()
                                         end
                                     end)
                                 end
