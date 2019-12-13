@@ -103,6 +103,12 @@ Mercury={_instances={}} do
                         }
                     },
                     New"Frame"{
+                        Name = "Body",
+                        Position = UDim2.new(.2, 0, 0, 30),
+                        Size = UDim2.new(.8, 0, 1, -30),
+                        BackgroundTransparency = 1
+                    },
+                    New"Frame"{
                         Name = "HorizontalRule",
                         Position = UDim2.new(0, 0, 0, 30),
                         Size = UDim2.new(1, 0, 0, 1),
@@ -208,10 +214,9 @@ Mercury={_instances={}} do
                                 }
                             }
                             New"Frame"{
-                                Name = config.title.."-Body",
-                                Parent = this.Parent,
-                                Position = UDim2.new(.2, 0, 0, 30),
-                                Size = UDim2.new(.8, 0, 1, -30),
+                                Name = config.title,
+                                Parent = this._link._inst.Body,
+                                Size = UDim2.new(1, 0, 1, 0),
                                 BackgroundTransparency = 1,
                                 Visible = false,
                                 New"TextLabel"{
