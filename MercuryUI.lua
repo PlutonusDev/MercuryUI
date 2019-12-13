@@ -267,7 +267,7 @@ Mercury={_instances={}} do
                                         [New]=function(this)if config.font then this = Fonts._GEN.Replace(config.font, this) end end
                                     },
                                     [New]=function(this)
-                                        if self._cpage == config.title then this.Visible = true end
+                                        if config._link._cpage == config.title then this.Visible = true end
                                         config._body = this
                                     end
                                 }
@@ -304,9 +304,9 @@ Mercury={_instances={}} do
                                             config._link._cpage = config.title
                                             for k,v in pairs(config._link._pages) do
                                                 if k~=config.title then
-                                                    if config._link._link._pages[k]._body then config._link._link._pages[k]._body.Visible = false end
+                                                    if config._link._pages[k]._body then config._link._pages[k]._body.Visible = false end
                                                 else
-                                                    if config._link._link._pages[k]._body then config._link._link._pages[k]._body.Visible = true end
+                                                    if config._link._pages[k]._body then config._link._pages[k]._body.Visible = true end
                                                 end
                                             end
                                             if config._link._body then config._link._body.Visible = true end
