@@ -162,7 +162,7 @@ Mercury={_instances={}} do
                             New"TextButton"{
                                 Name = "Content",
                                 Parent = this,
-                                BackgroundColor3 = self.color.accent,
+                                BackgroundColor3 = config._link.color.accent,
                                 Text = "",
                                 BorderSizePixel = 0,
                                 Size = UDim2.new(1, 0, 0, 25),
@@ -180,7 +180,7 @@ Mercury={_instances={}} do
                                     Size = UDim2.new(0, 0, 0, 25),
                                     BackgroundTransparency = 1,
                                     Text = config.title,
-                                    TextColor3 = self.color.title,
+                                    TextColor3 = config._link.color.important,
                                     TextSize = 18,
                                     TextXAlignment = Enum.TextXAlignment.Left,
                                     [New]=function(this)if config.font then this = Fonts._GEN.Replace(config.font, this) end end
@@ -228,7 +228,7 @@ Mercury={_instances={}} do
                                             Size = UDim2.new(0, 0, 0, 20),
                                             BackgroundTransparency = 1,
                                             Text = config.title,
-                                            TextColor3 = config._link._link.color.important,
+                                            TextColor3 = config._link._link.color.label,
                                             TextSize = 14,
                                             TextXAlignment = Enum.TextXAlignment.Left,
                                             [New]=function(this)if config.font then this = Fonts._GEN.Replace(config.font, this) end end
