@@ -161,7 +161,7 @@ Mercury={_instances={}} do
                                     BackgroundTransparency = 1,
                                     Text = config.title,
                                     TextColor3 = self.color.title,
-                                    TextSize = 14,
+                                    TextSize = 18,
                                     TextXAlignment = Enum.TextXAlignment.Left,
                                     [New]=function(this)if config.font then this = Fonts._GEN.Replace(config.font, this) end end
                                 },
@@ -202,7 +202,7 @@ Mercury={_instances={}} do
                                     BackgroundTransparency = 1,
                                     Text = config.title,
                                     TextColor3 = self.color.title,
-                                    TextSize = 14,
+                                    TextSize = 18,
                                     TextXAlignment = Enum.TextXAlignment.Left,
                                     [New]=function(this)if config.font then this = Fonts._GEN.Replace(config.font, this) end end
                                 }
