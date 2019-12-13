@@ -134,7 +134,7 @@ Mercury={_instances={}} do
                             New"UIListLayout"{
                                 Name = "DisplayLayout",
                                 Parent = this
-                            }
+                            },
                             New"Frame"{
                                 Name = "Content",
                                 Parent = this,
