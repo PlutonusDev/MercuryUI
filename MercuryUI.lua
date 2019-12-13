@@ -135,10 +135,11 @@ Mercury={_instances={}} do
                                 Name = "DisplayLayout",
                                 Parent = this
                             }
-                            New"Frame"{
+                            New"TextButton"{
                                 Name = "Content",
                                 Parent = this,
                                 BackgroundColor3 = self.color.accent,
+                                Text = "",
                                 BorderSizePixel = 0,
                                 Size = UDim2.new(1, 0, 0, 20),
                                 New"ImageLabel"{
@@ -163,20 +164,25 @@ Mercury={_instances={}} do
                                 [New]=function(this)
                                     this.MouseButton1Click:connect(function()
                                         if config._open then
-                                            t:Create(this.Dropdown, TweenInfo.New(0.7, Enum.EasingStyle.Back, Enum.EasingDirection.In),{Rotation=0}):Play()
-                                            t:Create(this, TweenInfo.New(0.7, Enum.EasingStyle.Back, Enum.EasingDirection.In),{Size=UDim2.new(1, 0, 0, 20)}):Play()
+                                            t:Create(this.Dropdown, TweenInfo.new(0.7, Enum.EasingStyle.Back, Enum.EasingDirection.Out),{Rotation=0}):Play()
+                                            t:Create(this, TweenInfo.new(0.7, Enum.EasingStyle.Back, Enum.EasingDirection.Out),{Size=UDim2.new(1, 0, 0, 20)}):Play()
+                                            wait(.7)
+                                            config._open = false
                                         else
-                                            t:Create(this.Dropdown, TweenInfo.New(0.7, Enum.EasingStyle.Back, Enum.EasingDirection.Out),{Rotation=90}):Play()
-                                            t:Create(this, TweenInfo.New(0.7, Enum.EasingStyle.Back, Enum.EasingDirection.Out),{Size=UDim2.new(1, 0, 0, tcount(config._items)*20+20)}):Play()
+                                            t:Create(this.Dropdown, TweenInfo.new(0.7, Enum.EasingStyle.Back, Enum.EasingDirection.Out),{Rotation=90}):Play()
+                                            t:Create(this, TweenInfo.new(0.7, Enum.EasingStyle.Back, Enum.EasingDirection.Out),{Size=UDim2.new(1, 0, 0, tcount(config._items)*20+20)}):Play()
+                                            wait(.7)
+                                            config._open = true
                                         end
                                     end)
                                 end
                             }
                         else
-                            New"Frame"{
+                            New"TextButton"{
                                 Name = "Content",
                                 Parent = this,
                                 BackgroundColor3 = self.color.accent,
+                                Text = "",
                                 BorderSizePixel = 0,
                                 Size = UDim2.new(1, 0, 0, 20),
                                 New"TextLabel"{
