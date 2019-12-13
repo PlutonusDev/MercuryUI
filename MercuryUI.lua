@@ -33,9 +33,20 @@ Mercury={_instances={}} do
             ["Pacifico"] = "pacifico",
             ["Rust"] = "rust"
         },
-        PageType = {
+        SelectorType = {
             Regular = false,
             Dropdown = true
+        },
+        LayoutType = {
+            Full = 0,
+            TwoColumn = 1,
+            ThreeColumn = 2,
+            TwoRow = 3,
+            ThreeRow = 4,
+            TwoColumnTwoRow = 5,
+            ThreeColumnTwoRow = 6,
+            TwoColumnThreeRow = 7,
+            ThreeColumnThreeRow = 8
         }
     }
     Mercury.Window = {
@@ -142,9 +153,9 @@ Mercury={_instances={}} do
 				},
 				[New]=function(this)config._inst=this end
             }
-            function config:addPage(config)
+            function config:addSelector(config)
                 config = config or {}
-                setmetatable(config,{__index=Mercury.Page.prototype})
+                setmetatable(config,{__index=Mercury.Selector.prototype})
                 if not self._cpage and not config.type then self._cpage=config.title end
                 self._pages[config.title] = config
                 config._link = self
@@ -335,7 +346,53 @@ Mercury={_instances={}} do
                                     Name = "Container",
                                     Position = UDim2.new(0, 0, 0, 35),
                                     Size = UDim2.new(1, 0, 1, -35),
-                                    BackgroundTransparency = 1
+                                    BackgroundTransparency = 1,
+                                    [New]=function(this)
+                                        if config.layout==0 then return end
+                                        if config.layout==1 then
+                                            New"UIListLayout"{
+                                                Name = "DisplayLayout",
+                                                Parent = this,
+                                                FillDirection = Enum.FillDirection.Horizontal
+                                            }
+                                            New"Frame"{
+                                                Name = "Col1",
+                                                Parent = this,
+                                                Size = UDim2.new(0.5, 0, 1, 0),
+                                                BackgroundTransparency = 1
+                                            }
+                                            New"Frame"{
+                                                Name = "Col2",
+                                                Parent = this,
+                                                Size = UDim2.new(0.5, 0, 1, 0),
+                                                BackgroundTransparency = 1
+                                            }
+                                        elseif config.layout==2 then
+                                            New"UIListLayout"{
+                                                Name = "DisplayLayout",
+                                                Parent = this,
+                                                FillDirection = Enum.FillDirection.Horizontal
+                                            }
+                                            New"Frame"{
+                                                Name = "Col1",
+                                                Parent = this,
+                                                Size = UDim2.new(1/3, 0, 1, 0),
+                                                BackgroundTransparency = 1
+                                            }
+                                            New"Frame"{
+                                                Name = "Col2",
+                                                Parent = this,
+                                                Size = UDim2.new(1/3, 0, 1, 0),
+                                                BackgroundTransparency = 1
+                                            }
+                                            New"Frame"{
+                                                Name = "Col3",
+                                                Parent = this,
+                                                Size = UDim2.new(1/3, 0, 1, 0),
+                                                BackgroundTransparency = 1
+                                            }
+                                        end
+                                    end
                                 },
                                 [New]=function(this)
                                     if config._link._cpage == config.title then this.Visible = true end
@@ -351,11 +408,12 @@ Mercury={_instances={}} do
 			return config
         end
     }
-    Mercury.Page = {
+    Mercury.Selector = {
         prototype = {
-            title = "New Page",
+            title = "New Selector",
             font = "akashi",
             type = false,
+            layout = Mercury.Enum.LayoutType.Full
             _open = false,
             _debounce = false,
             _inst = nil,
