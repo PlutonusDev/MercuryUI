@@ -139,12 +139,11 @@ Mercury={_instances={}} do
                     BackgroundTransparency = 1,
                     Size = UDim2.new(1, 0, 0, 25),
                     ClipsDescendants = true,
+                    New"UIListLayout"{
+                        Name = "DisplayLayout"
+                    },
                     [New]=function(this)
                         if config.dropdown then
-                            New"UIListLayout"{
-                                Name = "DisplayLayout",
-                                Parent = this
-                            }
                             New"TextButton"{
                                 Name = "Content",
                                 Parent = this,
@@ -248,7 +247,7 @@ Mercury={_instances={}} do
                         else
                             New"Frame"{
                                 Name = config.title,
-                                Parent = config._link._inst,
+                                Parent = this,
                                 BackgroundTransparency = 1,
                                 Size = UDim2.new(1, 0, 0, 20),
                                 New"TextButton"{
