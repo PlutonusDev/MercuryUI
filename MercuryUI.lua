@@ -124,6 +124,7 @@ Mercury={_instances={}} do
                 setmetatable(config,{__index=Mercury.Page.prototype})
                 if not self._cpage and not config.dropdown then self._cpage=config.title end
                 self._pages[config.title] = config
+                config._link = self
                 New"Frame"{
                     Name = config.title,
                     Parent = self._link.MainFrame.SideBar,
@@ -201,7 +202,7 @@ Mercury={_instances={}} do
                         end
                     end,
                     [New]=function(this)
-                        config._link = this
+                        config._inst = this
                     end
                 }
 
@@ -211,13 +212,13 @@ Mercury={_instances={}} do
                     self._items[config.title] = config
                     New"Frame"{
                         Name = config.title,
-                        Parent = config._link,
+                        Parent = config._inst,
                         BackgroundTransparency = 1,
                         Size = UDim2.new(1, 0, 0, 20),
                         New"TextButton"{
                             Name = "Content",
                             Parent = this,
-                            BackgroundColor3 = self.color.accent,
+                            BackgroundColor3 = self._link.color.accent,
                             Text = "",
                             BorderSizePixel = 0,
                             Size = UDim2.new(1, 0, 0, 20),
@@ -236,6 +237,7 @@ Mercury={_instances={}} do
             font = "akashi",
             dropdown = false,
             _open = false,
+            _inst = nil,
             _items = {},
             _tabs = {},
             _link = nil
