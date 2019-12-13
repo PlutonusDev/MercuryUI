@@ -237,14 +237,14 @@ Mercury={_instances={}} do
                                             this.MouseButton1Click:connect(function()
                                                 if config._link._link._cpage == config.title then return end
                                                 config._link._link._cpage = config.title
-                                                for k,v in pairs(config._link._link._pages) do
+                                                for k,v in pairs(config._pages) do
                                                     if k~=config.title then
-                                                        if config._link._link._pages[k]._body then config._link._link._pages[k]._body.Visible = false end
+                                                        if config._pages[k]._body then config._pages[k]._body.Visible = false end
                                                     else
-                                                        if config._link._link._pages[k]._body then config._link._link._pages[k]._body.Visible = true end
+                                                        if config._pages[k]._body then config._pages[k]._body.Visible = true end
                                                     end
                                                 end
-                                                if config._link._link._body then config._link._link._body.Visible = true end
+                                                if config._body then config._body.Visible = true end
                                             end)
                                         end
                                     }
@@ -327,12 +327,12 @@ Mercury={_instances={}} do
                                     Size = UDim2.new(0, 0, 0, 25),
                                     BackgroundTransparency = 1,
                                     Text = config.title,
-                                    TextColor3 = self.color.title,
+                                    TextColor3 = config._link.color.title,
                                     TextSize = 18,
                                     [New]=function(this)if config.font then this = Fonts._GEN.Replace(config.font, this) end end
                                 },
                                 [New]=function(this)
-                                    if self._cpage == config.title then this.Visible = true end
+                                    if config._link._cpage == config.title then this.Visible = true end
                                     config._body = this
                                 end
                             }
