@@ -246,7 +246,7 @@ Mercury={_instances={}} do
                             }
                             New"Frame"{
                                 Name = config.title,
-                                Parent = this._link._inst.Body,
+                                Parent = config._link._inst.Body,
                                 Size = UDim2.new(1, 0, 1, 0),
                                 BackgroundTransparency = 1,
                                 Visible = false,
