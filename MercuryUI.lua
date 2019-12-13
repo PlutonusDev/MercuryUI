@@ -25,7 +25,7 @@ local function dump (tbl, indent)
       elseif type(v) == 'boolean' then
         print(formatting .. tostring(v))      
       else
-        print(formatting .. v)
+        print(formatting .. tostring(v))
       end
     end
   end
