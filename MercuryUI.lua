@@ -21,7 +21,7 @@ local function dump (tbl, indent)
       formatting = string.rep("  ", indent) .. k .. ": "
       if type(v) == "table" then
         print(formatting)
-        if tostring(v)=="_link" then return end
+        if tostring(k)=="_link" then return end
         dump(v, indent+1)
       elseif type(v) == 'boolean' then
         print(formatting .. tostring(v))      
