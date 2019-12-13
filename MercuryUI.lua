@@ -142,6 +142,7 @@ Mercury={_instances={}} do
                                 },
                                 New"TextLabel"{
                                     Name = "Label",
+                                    Position = UDim2.new(0, 15, 0, 0),
                                     Size = UDim2.new(0, 0, 0, 25),
                                     BackgroundTransparency = 1,
                                     Text = config.title,
