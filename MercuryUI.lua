@@ -262,7 +262,7 @@ Mercury={_instances={}} do
                                         Size = UDim2.new(0, 0, 0, 25),
                                         BackgroundTransparency = 1,
                                         Text = config.title,
-                                        TextColor3 = config._link._link.color.title,
+                                        TextColor3 = config._link._link.color.important,
                                         TextSize = 18,
                                         [New]=function(this)if config.font then this = Fonts._GEN.Replace(config.font, this) end end
                                     },
@@ -293,19 +293,19 @@ Mercury={_instances={}} do
                                         Size = UDim2.new(0, 0, 0, 25),
                                         BackgroundTransparency = 1,
                                         Text = config.title,
-                                        TextColor3 = self.color.title,
+                                        TextColor3 = self.color.important,
                                         TextSize = 18,
                                         TextXAlignment = Enum.TextXAlignment.Left,
                                         [New]=function(this)if config.font then this = Fonts._GEN.Replace(config.font, this) end end
                                     },
                                     [New]=function(this)
-                                        for k,v in pairs(config._link) do
-                                            print("> ",k,v)
-                                            for l,w in pairs(v) do
-                                                print("> > ",l,w)
-                                            end
-                                        end
                                         this.MouseButton1Click:connect(function()
+                                            for k,v in pairs(config._link) do
+                                                print("> ",k,v)
+                                                for l,w in pairs(v) do
+                                                    print("> > ",l,w)
+                                                end
+                                            end
                                             if config._link._link._cpage == config.title then return end
                                             config._link._link._cpage = config.title
                                             for k,v in pairs(config._link._link._pages) do
