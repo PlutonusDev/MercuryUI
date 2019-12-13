@@ -123,7 +123,7 @@ Mercury={_instances={}} do
                 config = config or {}
                 setmetatable(config,{__index=Mercury.Page.prototype})
                 config._link = self
-                if not self._cpage self._cpage=config.title end
+                if not self._cpage then self._cpage=config.title end
                 New"Frame"{
                     Name = config.title,
                     Parent = self._link.MainFrame.SideBar,
