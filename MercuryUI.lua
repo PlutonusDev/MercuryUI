@@ -147,18 +147,7 @@ Mercury={_instances={}} do
                                     Position = UDim2.new(0, 2, .5, 0),
                                     Size = UDim2.new(0, 8, 0, 8),
                                     BackgroundTransparency = 1,
-                                    Image = "rbxassetid://4317835953",
-                                    [New]=function(this)
-                                        this.MouseButton1Click:connect(function()
-                                            if config._open then
-                                                t:Create(this, new TweenInfo(0.7, Enum.EasingStyle.Back, Enum.EasingDirection.In),{Rotation=0}):Play()
-                                                t:Create(this.Parent, new TweenInfo(0.7, Enum.EasingStyle.Back, Enum.EasingDirection.In),{Size=UDim2.new(1, 0, 0, 20)}):Play()
-                                            else
-                                                t:Create(this, new TweenInfo(0.7, Enum.EasingStyle.Back, Enum.EasingDirection.Out),{Rotation=90}):Play()
-                                                t:Create(this.Parent, new TweenInfo(0.7, Enum.EasingStyle.Back, Enum.EasingDirection.Out),{Size=UDim2.new(1, 0, 0, tcount(config._items)*20+20)}):Play()
-                                            end
-                                        end)
-                                    end
+                                    Image = "rbxassetid://4317835953"
                                 },
                                 New"TextLabel"{
                                     Name = "Label",
@@ -170,7 +159,18 @@ Mercury={_instances={}} do
                                     TextSize = 12,
                                     TextXAlignment = Enum.TextXAlignment.Left,
                                     [New]=function(this)if config.font then this = Fonts._GEN.Replace(config.font, this) end end
-                                }
+                                },
+                                [New]=function(this)
+                                    this.MouseButton1Click:connect(function()
+                                        if config._open then
+                                            t:Create(this.Dropdown, new TweenInfo(0.7, Enum.EasingStyle.Back, Enum.EasingDirection.In),{Rotation=0}):Play()
+                                            t:Create(this, new TweenInfo(0.7, Enum.EasingStyle.Back, Enum.EasingDirection.In),{Size=UDim2.new(1, 0, 0, 20)}):Play()
+                                        else
+                                            t:Create(this.Dropdown, new TweenInfo(0.7, Enum.EasingStyle.Back, Enum.EasingDirection.Out),{Rotation=90}):Play()
+                                            t:Create(this, new TweenInfo(0.7, Enum.EasingStyle.Back, Enum.EasingDirection.Out),{Size=UDim2.new(1, 0, 0, tcount(config._items)*20+20)}):Play()
+                                        end
+                                    end)
+                                end
                             }
                         else
                             New"Frame"{
