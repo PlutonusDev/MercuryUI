@@ -87,11 +87,12 @@ Mercury={_instances={}} do
                         BorderSizePixel = 0,
                         ZIndex = 2,
                         New"UIListLayout"{
-                            Name = "DisplayLayout"
+                            Name = "DisplayLayout",
+                            Padding = UDim.new(0, 5)
                         },
                         New"UIPadding"{
                             Name = "Margin",
-                            PaddingTop = UDim.new(0, 5)
+                            PaddingTop = UDim.new(0, 15)
                         }
                     },
                     New"Frame"{
@@ -130,7 +131,8 @@ Mercury={_instances={}} do
                             New"Frame"{
                                 Name = "Content",
                                 Parent = this,
-                                BackgroundTransparency = 1,
+                                BackgroundColor3 = self.color.accent,
+                                BorderSizePixel = 0,
                                 Size = UDim2.new(1, 0, 0, 20),
                                 New"ImageLabel"{
                                     Name = "Dropdown",
