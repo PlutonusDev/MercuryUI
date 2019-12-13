@@ -29,9 +29,9 @@ Mercury={_instances={}} do
         Font = {
             ["Akashi"] = Fonts.akashi,
             ["Aller"] = Fonts.aller,
-            ["Milkshake"] = Fonts.Milkshake,
-            ["Pacifico"] = Fonts.Pacifico,
-            ["Rust"] = Fonts.Rust
+            ["Milkshake"] = Fonts.milkshake,
+            ["Pacifico"] = Fonts.pacifico,
+            ["Rust"] = Fonts.rust
         },
         PageType = {
             Regular = false,
