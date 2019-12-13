@@ -27,11 +27,11 @@ end
 Mercury={_instances={}} do
     Mercury.Enum = {
         Font = {
-            ["Akashi"] = Fonts.akashi,
-            ["Aller"] = Fonts.aller,
-            ["Milkshake"] = Fonts.milkshake,
-            ["Pacifico"] = Fonts.pacifico,
-            ["Rust"] = Fonts.rust
+            ["Akashi"] = "akashi",
+            ["Aller"] = "aller",
+            ["Milkshake"] = "milkshake",
+            ["Pacifico"] = "pacifico",
+            ["Rust"] = "rust"
         },
         PageType = {
             Regular = false,
