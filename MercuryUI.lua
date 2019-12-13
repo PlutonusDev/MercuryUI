@@ -297,7 +297,27 @@ Mercury={_instances={}} do
                                         TextSize = 18,
                                         TextXAlignment = Enum.TextXAlignment.Left,
                                         [New]=function(this)if config.font then this = Fonts._GEN.Replace(config.font, this) end end
-                                    }
+                                    },
+                                    [New]=function(this)
+                                        for k,v in pairs(config._link) do
+                                            print("> ",k,v)
+                                            for l,w in pairs(v) do
+                                                print("> > ",l,w)
+                                            end
+                                        end
+                                        this.MouseButton1Click:connect(function()
+                                            if config._link._link._cpage == config.title then return end
+                                            config._link._link._cpage = config.title
+                                            for k,v in pairs(config._link._link._pages) do
+                                                if k~=config.title then
+                                                    if config._link._link._pages[k]._body then config._link._link._pages[k]._body.Visible = false end
+                                                else
+                                                    if config._link._link._pages[k]._body then config._link._link._pages[k]._body.Visible = true end
+                                                end
+                                            end
+                                            if config._link._body then config._link._body.Visible = true end
+                                        end)
+                                    end
                                 }
                             }
                             New"Frame"{
