@@ -207,6 +207,29 @@ Mercury={_instances={}} do
                                     [New]=function(this)if config.font then this = Fonts._GEN.Replace(config.font, this) end end
                                 }
                             }
+                            New"Frame"{
+                                Name = config.title.."-Body",
+                                Parent = this.Parent,
+                                Position = UDim2.new(.2, 0, 0, 30),
+                                Size = UDim2.new(.8, 0, 1, -30),
+                                BackgroundTransparency = 1,
+                                Visible = false,
+                                New"TextLabel"{
+                                    Name = "Title",
+                                    AnchorPoint = Vector2.new(.5, 0),
+                                    Position = UDim2.new(0.5, 0, 0, 15),
+                                    Size = UDim2.new(0, 0, 0, 25),
+                                    BackgroundTransparency = 1,
+                                    Text = config.title,
+                                    TextColor3 = self.color.title,
+                                    TextSize = 18,
+                                    [New]=function(this)if config.font then this = Fonts._GEN.Replace(config.font, this) end end
+                                },
+                                [New]=function(this)
+                                    if self._cpage == config.title then this.Visible = true end
+                                    config._body = this
+                                end
+                            }
                         end
                         config._inst = this
                     end
@@ -258,6 +281,7 @@ Mercury={_instances={}} do
             _inst = nil,
             _items = {},
             _tabs = {},
+            _body = {},
             _link = nil
         }
     }
@@ -266,6 +290,7 @@ Mercury={_instances={}} do
             title = "New Item",
             font = "akashi",
             _tabs = {},
+            _body = {},
             _link = nil
         }
     }
