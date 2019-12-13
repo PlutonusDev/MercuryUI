@@ -53,7 +53,7 @@ Mercury={_instances={}} do
 				border = Color3.fromRGB(170, 170, 170),
 				title = Color3.fromRGB(240, 240, 240),
                 label = Color3.fromRGB(230, 230, 230),
-                important = Color3.fromRGB()
+                important = Color3.fromRGB(0, 153, 255)
 			},
             title = "New Window",
             font = "akashi",
@@ -228,7 +228,7 @@ Mercury={_instances={}} do
                                             Size = UDim2.new(0, 0, 0, 20),
                                             BackgroundTransparency = 1,
                                             Text = config.title,
-                                            TextColor3 = config._link._link.color.label,
+                                            TextColor3 = config._link._link.color.important,
                                             TextSize = 14,
                                             TextXAlignment = Enum.TextXAlignment.Left,
                                             [New]=function(this)if config.font then this = Fonts._GEN.Replace(config.font, this) end end
@@ -262,7 +262,7 @@ Mercury={_instances={}} do
                                         Size = UDim2.new(0, 0, 0, 25),
                                         BackgroundTransparency = 1,
                                         Text = config.title,
-                                        TextColor3 = config._link._link.color.important,
+                                        TextColor3 = config._link._link.color.label,
                                         TextSize = 18,
                                         [New]=function(this)if config.font then this = Fonts._GEN.Replace(config.font, this) end end
                                     },
@@ -282,7 +282,7 @@ Mercury={_instances={}} do
                                 New"TextButton"{
                                     Name = "Content",
                                     Parent = this,
-                                    BackgroundColor3 = self.color.accent,
+                                    BackgroundColor3 = config._link.color.accent,
                                     Text = "",
                                     BorderSizePixel = 0,
                                     Size = UDim2.new(1, 0, 0, 25),
@@ -293,7 +293,7 @@ Mercury={_instances={}} do
                                         Size = UDim2.new(0, 0, 0, 25),
                                         BackgroundTransparency = 1,
                                         Text = config.title,
-                                        TextColor3 = self.color.important,
+                                        TextColor3 = config._link.color.important,
                                         TextSize = 18,
                                         TextXAlignment = Enum.TextXAlignment.Left,
                                         [New]=function(this)if config.font then this = Fonts._GEN.Replace(config.font, this) end end
@@ -327,7 +327,7 @@ Mercury={_instances={}} do
                                     Size = UDim2.new(0, 0, 0, 25),
                                     BackgroundTransparency = 1,
                                     Text = config.title,
-                                    TextColor3 = config._link.color.title,
+                                    TextColor3 = config._link.color.label,
                                     TextSize = 18,
                                     [New]=function(this)if config.font then this = Fonts._GEN.Replace(config.font, this) end end
                                 },
