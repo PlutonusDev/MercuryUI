@@ -428,6 +428,7 @@ Mercury={_instances={}} do
         prototype = {
             title = "New Item",
             font = "akashi",
+            layout = Mercury.Enum.LayoutType.Full,
             _tabs = {},
             _body = {},
             _link = nil
