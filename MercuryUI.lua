@@ -2,7 +2,12 @@ _={_ver="1.0.0",config={makeGlobal=true},modules={Instance={PrivImpl=function(a)
 
 local debug = false
 
-function deepcopy(a,b)b=b or{}local c=type(a)local d;if c=='table'then if b[a]then d=b[a]else d={}b[a]=d;setmetatable(d,deepcopy(getmetatable(a),b))for e,f in next,a,nil do d[deepcopy(e,b)]=deepcopy(f,b)end end else d=a end;return d end
+local t = game:GetService("TweenService")
+local function tcount(table)
+    j=0
+    for i in iter(table) do j=j+1 end
+    return j
+end
 local function printm(msg,...)
     warn(string.format("%s "..msg,"[MercuryUI]",... and ... or false))
 end
@@ -117,6 +122,8 @@ Mercury={_instances={}} do
             function config:addPage(config)
                 config = config or {}
                 setmetatable(config,{__index=Mercury.Page.prototype})
+                config._link = self
+                if not self._cpage self._cpage=config.title end
                 New"Frame"{
                     Name = config.title,
                     Parent = self._link.MainFrame.SideBar,
@@ -140,11 +147,20 @@ Mercury={_instances={}} do
                                     Position = UDim2.new(0, 2, .5, 0),
                                     Size = UDim2.new(0, 8, 0, 8),
                                     BackgroundTransparency = 1,
-                                    Image = "rbxassetid://4317835953"
+                                    Image = "rbxassetid://4317835953",
+                                    [Event"MouseButton1Click"]=function(this)
+                                        if config._open then
+                                            t.Create(this, new TweenInfo(0.7, Enum.EasingStyle.Back, Enum.EasingDirection.In),{Rotation=90}):Play()
+                                            t.Create(this.Parent, new TweenInfo(0.7, Enum.EasingStyle.Back, Enum.EasingDirection.In),{Size=UDim2.new(1, 0, 0, 20)}):Play()
+                                        else
+                                            t.Create(this, new TweenInfo(0.7, Enum.EasingStyle.Back, Enum.EasingDirection.Out),{Rotation=90}):Play()
+                                            t.Create(this.Parent, new TweenInfo(0.7, Enum.EasingStyle.Back, Enum.EasingDirection.Out),{Size=UDim2.new(1, 0, 0, tcount(config._items)*20+20)}):Play()
+                                        end
+                                    end
                                 },
                                 New"TextLabel"{
                                     Name = "Label",
-                                    Position = UDim2.new(0, 15, 0, -3),
+                                    Position = UDim2.new(0, 15, 0, -2),
                                     Size = UDim2.new(0, 0, 0, 25),
                                     BackgroundTransparency = 1,
                                     Text = config.title,
@@ -164,7 +180,7 @@ Mercury={_instances={}} do
                                 New"TextLabel"{
                                     Name = "Label",
                                     Parent = this,
-                                    Position = UDim2.new(0, 15, 0, -3),
+                                    Position = UDim2.new(0, 15, 0, -2),
                                     Size = UDim2.new(0, 0, 0, 25),
                                     BackgroundTransparency = 1,
                                     Text = config.title,
@@ -186,7 +202,10 @@ Mercury={_instances={}} do
             title = "New Page",
             font = "akashi",
             dropdown = false,
-            _tabs = {}
+            _open = {},
+            _items = {},
+            _tabs = {},
+            _link = nil
         }
     }
 end
