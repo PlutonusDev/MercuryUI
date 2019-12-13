@@ -268,7 +268,7 @@ Mercury={_instances={}} do
                                     },
                                     [New]=function(this)
                                         if config._link._cpage == config.title then this.Visible = true end
-                                        config._link._pages[config.title]._body = this
+                                        config._link._pages[config.title] = {_body = this}
                                     end
                                 }
                                 return config
