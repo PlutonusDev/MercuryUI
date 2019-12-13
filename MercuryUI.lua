@@ -3,9 +3,9 @@ _={_ver="1.0.0",config={makeGlobal=true},modules={Instance={PrivImpl=function(a)
 local debug = false
 
 local t = game:GetService("TweenService")
-local function tcount(table)
+local function tcount(tbl)
     j=0
-    for i in iter(table) do j=j+1 end
+    for i in pairs(tbl) do j=j+1 end
     return j
 end
 local function printm(msg,...)
@@ -132,6 +132,7 @@ Mercury={_instances={}} do
                     Parent = config._link._inst.MainFrame.SideBar,
                     BackgroundTransparency = 1,
                     Size = UDim2.new(1, 0, 0, 20),
+                    ClipsDescendants = true,
                     [New]=function(this)
                         if config.dropdown then
                             New"UIListLayout"{
@@ -166,16 +167,21 @@ Mercury={_instances={}} do
                                 },
                                 [New]=function(this)
                                     this.MouseButton1Click:connect(function()
+                                        if config._debounce then return end
                                         if config._open then
+                                            config._debounce = true
                                             t:Create(this.Dropdown, TweenInfo.new(0.7, Enum.EasingStyle.Back, Enum.EasingDirection.Out),{Rotation=0}):Play()
-                                            t:Create(this, TweenInfo.new(0.7, Enum.EasingStyle.Back, Enum.EasingDirection.Out),{Size=UDim2.new(1, 0, 0, 20)}):Play()
+                                            t:Create(this.Parent, TweenInfo.new(0.7, Enum.EasingStyle.Quad, Enum.EasingDirection.In),{Size=UDim2.new(1, 0, 0, 20)}):Play()
                                             wait(.7)
                                             config._open = false
+                                            config._debounce = false
                                         else
+                                            config._debounce = true
                                             t:Create(this.Dropdown, TweenInfo.new(0.7, Enum.EasingStyle.Back, Enum.EasingDirection.Out),{Rotation=90}):Play()
-                                            t:Create(this, TweenInfo.new(0.7, Enum.EasingStyle.Back, Enum.EasingDirection.Out),{Size=UDim2.new(1, 0, 0, tcount(config._items)*20+20)}):Play()
+                                            t:Create(this.Parent, TweenInfo.new(0.7, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{Size=UDim2.new(1, 0, 0, (tcount(config._items)*20)+20)}):Play()
                                             wait(.7)
                                             config._open = true
+                                            config._debounce = false
                                         end
                                     end)
                                 end
@@ -202,8 +208,6 @@ Mercury={_instances={}} do
                                 }
                             }
                         end
-                    end,
-                    [New]=function(this)
                         config._inst = this
                     end
                 }
@@ -224,6 +228,17 @@ Mercury={_instances={}} do
                             Text = "",
                             BorderSizePixel = 0,
                             Size = UDim2.new(1, 0, 0, 20),
+                            New"TextLabel"{
+                                Name = "Label",
+                                Position = UDim2.new(0, 15, 0, -2),
+                                Size = UDim2.new(0, 0, 0, 25),
+                                BackgroundTransparency = 1,
+                                Text = config.title,
+                                TextColor3 = config._link._link.color.title,
+                                TextSize = 12,
+                                TextXAlignment = Enum.TextXAlignment.Left,
+                                [New]=function(this)if config.font then this = Fonts._GEN.Replace(config.font, this) end end
+                            }
                         }
                     }
                     return config
@@ -239,6 +254,7 @@ Mercury={_instances={}} do
             font = "akashi",
             dropdown = false,
             _open = false,
+            _debounce = false,
             _inst = nil,
             _items = {},
             _tabs = {},
