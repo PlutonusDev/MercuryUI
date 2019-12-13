@@ -144,7 +144,7 @@ Mercury={_instances={}} do
                                 },
                                 New"TextLabel"{
                                     Name = "Label",
-                                    Position = UDim2.new(0, 15, 0, 0),
+                                    Position = UDim2.new(0, 15, 0, -3),
                                     Size = UDim2.new(0, 0, 0, 25),
                                     BackgroundTransparency = 1,
                                     Text = config.title,
@@ -158,12 +158,13 @@ Mercury={_instances={}} do
                             New"Frame"{
                                 Name = "Content",
                                 Parent = this,
-                                BackgroundTransparency = 1,
+                                BackgroundColor3 = self.color.accent,
+                                BorderSizePixel = 0,
                                 Size = UDim2.new(1, 0, 0, 20),
                                 New"TextLabel"{
                                     Name = "Label",
                                     Parent = this,
-                                    Position = UDim2.new(0, 15, 0, 0),
+                                    Position = UDim2.new(0, 15, 0, -3),
                                     Size = UDim2.new(0, 0, 0, 25),
                                     BackgroundTransparency = 1,
                                     Text = config.title,
