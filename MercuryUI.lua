@@ -235,19 +235,19 @@ Mercury={_instances={}} do
                                         },
                                         [New]=function(this)
                                             this.MouseButton1Click:connect(function()
-                                                if config._link._link._cpage = config.title then return end
+                                                if config._link._link._cpage == config.title then return end
                                                 config._link._link._cpage = config.title
                                                 for k,v in pairs(config._link._items) do
                                                     if k~=config.title then
-                                                        config._link._items[k]._body and config._link._items[k]._body.Visible = false
+                                                        if config._link._items[k]._body then config._link._items[k]._body.Visible = false end
                                                     end
                                                 end
                                                 for k,v in pairs(config._link._link._pages) do
                                                     if k~=config.title then
-                                                        config._link._link._pages[k]._body and config._link._link._pages[k]._body.Visible = false
+                                                        if config._link._link._pages[k]._body then config._link._link._pages[k]._body.Visible = false end
                                                     end
                                                 end
-                                                config._link._body and config._link._body.Visible = true
+                                                if config._link._body then config._link._body.Visible = true end
                                             end)
                                         end
                                     }
