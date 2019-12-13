@@ -156,7 +156,7 @@ Mercury={_instances={}} do
                                 },
                                 New"TextLabel"{
                                     Name = "Label",
-                                    Position = UDim2.new(0, 15, 0, -2),
+                                    Position = UDim2.new(0, 15, 0, 0),
                                     Size = UDim2.new(0, 0, 0, 25),
                                     BackgroundTransparency = 1,
                                     Text = config.title,
@@ -235,7 +235,7 @@ Mercury={_instances={}} do
                                 BackgroundTransparency = 1,
                                 Text = config.title,
                                 TextColor3 = config._link._link.color.title,
-                                TextSize = 14,
+                                TextSize = 18,
                                 TextXAlignment = Enum.TextXAlignment.Left,
                                 [New]=function(this)if config.font then this = Fonts._GEN.Replace(config.font, this) end end
                             }
