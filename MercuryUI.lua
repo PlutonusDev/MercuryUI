@@ -129,7 +129,7 @@ Mercury={_instances={}} do
                 config._link = self
                 New"Frame"{
                     Name = config.title,
-                    Parent = self._inst.MainFrame.SideBar,
+                    Parent = config._link._inst.MainFrame.SideBar,
                     BackgroundTransparency = 1,
                     Size = UDim2.new(1, 0, 0, 20),
                     [New]=function(this)
