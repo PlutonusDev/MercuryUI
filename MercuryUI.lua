@@ -183,7 +183,7 @@ Mercury={_instances={}} do
                                         else
                                             config._debounce = true
                                             t:Create(this.Dropdown, TweenInfo.new(0.7, Enum.EasingStyle.Back, Enum.EasingDirection.Out),{Rotation=90}):Play()
-                                            t:Create(this.Parent, TweenInfo.new(0.7, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{Size=UDim2.new(1, 0, 0, (tcount(config._items)*25)+25)}):Play()
+                                            t:Create(this.Parent, TweenInfo.new(0.7, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{Size=UDim2.new(1, 0, 0, (tcount(config._items)*20)+25)}):Play()
                                             wait(.7)
                                             config._open = true
                                             config._debounce = false
@@ -206,15 +206,15 @@ Mercury={_instances={}} do
                                         BackgroundColor3 = config._link._link.color.accent,
                                         Text = "",
                                         BorderSizePixel = 0,
-                                        Size = UDim2.new(1, 0, 0, 25),
+                                        Size = UDim2.new(1, 0, 0, 20),
                                         New"TextLabel"{
                                             Name = "Label",
                                             Position = UDim2.new(0, 15, 0, 0),
                                             Size = UDim2.new(0, 0, 0, 25),
                                             BackgroundTransparency = 1,
                                             Text = config.title,
-                                            TextColor3 = config._link._link.color.title,
-                                            TextSize = 18,
+                                            TextColor3 = config._link._link.color.label,
+                                            TextSize = 14,
                                             TextXAlignment = Enum.TextXAlignment.Left,
                                             [New]=function(this)if config.font then this = Fonts._GEN.Replace(config.font, this) end end
                                         }
