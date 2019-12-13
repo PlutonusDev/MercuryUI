@@ -199,7 +199,7 @@ Mercury={_instances={}} do
                                 config._link = self
                                 New"Frame"{
                                     Name = config.title,
-                                    Parent = config._link._inst,
+                                    Parent = this,
                                     BackgroundTransparency = 1,
                                     Size = UDim2.new(1, 0, 0, 20),
                                     New"TextButton"{
