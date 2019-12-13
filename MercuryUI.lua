@@ -45,11 +45,13 @@ Mercury={_instances={}} do
             _dev = {},
             _pages = {},
             _cpage = nil,
-			_link = nil
+            _link = nil,
+            _inst = nil
         },
         new = function(config)
 			config = config or {}
             setmetatable(config,{__index=Mercury.Window.prototype})
+            config._link = config
 			New"ScreenGui"{
 				Name = config.title,
 				Parent = config._dev.plr and game:GetService("Players"):WaitForChild(config._dev.plr).PlayerGui or game:GetService("Players").LocalPlayer,
@@ -117,7 +119,7 @@ Mercury={_instances={}} do
                         ZIndex = 3
                     }
 				},
-				[New]=function(this)config._link=this end
+				[New]=function(this)config._inst=this end
             }
             function config:addPage(config)
                 config = config or {}
@@ -127,7 +129,7 @@ Mercury={_instances={}} do
                 config._link = self
                 New"Frame"{
                     Name = config.title,
-                    Parent = self._link.MainFrame.SideBar,
+                    Parent = self._inst.MainFrame.SideBar,
                     BackgroundTransparency = 1,
                     Size = UDim2.new(1, 0, 0, 20),
                     [New]=function(this)
@@ -210,15 +212,15 @@ Mercury={_instances={}} do
                     config = config or {}
                     setmetatable(config,{__index=Mercury.Item.prototype})
                     self._items[config.title] = config
+                    config._link = self
                     New"Frame"{
                         Name = config.title,
-                        Parent = config._inst,
+                        Parent = config._link._inst,
                         BackgroundTransparency = 1,
                         Size = UDim2.new(1, 0, 0, 20),
                         New"TextButton"{
                             Name = "Content",
-                            Parent = this,
-                            BackgroundColor3 = self._link.color.accent,
+                            BackgroundColor3 = config._link._link.color.accent,
                             Text = "",
                             BorderSizePixel = 0,
                             Size = UDim2.new(1, 0, 0, 20),
