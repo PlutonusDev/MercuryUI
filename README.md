@@ -4,12 +4,12 @@
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
     <br />
     <p>
-    <h1><strong>MercuryUI</strong> for Roblox</h1>
-    <img src="https://img.shields.io/github/stars/PlutonusDev/MercuryUI.svg">
+        <h1><strong>MercuryUI</strong> for Roblox</h1>
+        <img src="https://img.shields.io/github/stars/PlutonusDev/MercuryUI.svg">
         <img src="https://img.shields.io/github/last-commit/PlutonusDev/MercuryUI.svg">
+        <img src="http://hits.dwyl.io/PlutonusDev/MercuryUI.svg">
+        <img src="https://github-size-badge.herokuapp.com/PlutonusDev/MercuryUI.svg">
     </p>
-    <img src="http://hits.dwyl.io/PlutonusDev/MercuryUI.svg">
-    <img src="https://github-size-badge.herokuapp.com/PlutonusDev/MercuryUI.svg">
 </div>
 
 ---
