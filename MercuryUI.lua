@@ -223,7 +223,9 @@ Mercury={_instances={}} do
                             Size = UDim2.new(1, 0, 0, 20),
                         }
                     }
+                    return config
                 end
+                return config
             end
 			return config
         end
