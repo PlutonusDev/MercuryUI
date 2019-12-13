@@ -264,7 +264,7 @@ Mercury={_instances={}} do
                                         Text = config.title,
                                         TextColor3 = config._link._link.color.label,
                                         TextSize = 18,
-                                        [New]=function(this)if config.font then this = Fonts._GEN.Replace(config.font, this) end end
+                                        [New]=function(this)this = Fonts._GEN.Replace(Mercury.Enum.Font.Akashi, this) end end
                                     },
                                     [New]=function(this)
                                         if config._link._cpage == config.title then this.Visible = true end
@@ -329,7 +329,7 @@ Mercury={_instances={}} do
                                     Text = config.title,
                                     TextColor3 = config._link.color.label,
                                     TextSize = 18,
-                                    [New]=function(this)if config.font then this = Fonts._GEN.Replace(config.font, this) end end
+                                    [New]=function(this)this = Fonts._GEN.Replace(Mercury.Enum.Font.Akashi, this) end end
                                 },
                                 [New]=function(this)
                                     if config._link._cpage == config.title then this.Visible = true end
