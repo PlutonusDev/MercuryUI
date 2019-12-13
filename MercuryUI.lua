@@ -232,7 +232,24 @@ Mercury={_instances={}} do
                                             TextSize = 14,
                                             TextXAlignment = Enum.TextXAlignment.Left,
                                             [New]=function(this)if config.font then this = Fonts._GEN.Replace(config.font, this) end end
-                                        }
+                                        },
+                                        [New]=function(this)
+                                            this.MouseButton1Click:connect(function()
+                                                if config._link._link._cpage = config.title then return end
+                                                config._link._link._cpage = config.title
+                                                for k,v in pairs(config._link._items) do
+                                                    if k~=config.title then
+                                                        config._link._items[k]._body and config._link._items[k]._body.Visible = false
+                                                    end
+                                                end
+                                                for k,v in pairs(config._link._link._pages) do
+                                                    if k~=config.title then
+                                                        config._link._link._pages[k]._body and config._link._link._pages[k]._body.Visible = false
+                                                    end
+                                                end
+                                                config._link._body and config._link._body.Visible = true
+                                            end)
+                                        end
                                     }
                                 }
                                 New"Frame"{
