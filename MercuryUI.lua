@@ -131,7 +131,7 @@ Mercury={_instances={}} do
                     Name = config.title,
                     Parent = config._link._inst.MainFrame.SideBar,
                     BackgroundTransparency = 1,
-                    Size = UDim2.new(1, 0, 0, 20),
+                    Size = UDim2.new(1, 0, 0, 25),
                     ClipsDescendants = true,
                     [New]=function(this)
                         if config.dropdown then
@@ -171,14 +171,14 @@ Mercury={_instances={}} do
                                         if config._open then
                                             config._debounce = true
                                             t:Create(this.Dropdown, TweenInfo.new(0.7, Enum.EasingStyle.Back, Enum.EasingDirection.Out),{Rotation=0}):Play()
-                                            t:Create(this.Parent, TweenInfo.new(0.7, Enum.EasingStyle.Quad, Enum.EasingDirection.In),{Size=UDim2.new(1, 0, 0, 20)}):Play()
+                                            t:Create(this.Parent, TweenInfo.new(0.7, Enum.EasingStyle.Quad, Enum.EasingDirection.In),{Size=UDim2.new(1, 0, 0, 25)}):Play()
                                             wait(.7)
                                             config._open = false
                                             config._debounce = false
                                         else
                                             config._debounce = true
                                             t:Create(this.Dropdown, TweenInfo.new(0.7, Enum.EasingStyle.Back, Enum.EasingDirection.Out),{Rotation=90}):Play()
-                                            t:Create(this.Parent, TweenInfo.new(0.7, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{Size=UDim2.new(1, 0, 0, (tcount(config._items)*20)+20)}):Play()
+                                            t:Create(this.Parent, TweenInfo.new(0.7, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{Size=UDim2.new(1, 0, 0, (tcount(config._items)*25)+25)}):Play()
                                             wait(.7)
                                             config._open = true
                                             config._debounce = false
@@ -197,7 +197,7 @@ Mercury={_instances={}} do
                                 New"TextLabel"{
                                     Name = "Label",
                                     Parent = this,
-                                    Position = UDim2.new(0, 15, 0, -2),
+                                    Position = UDim2.new(0, 15, 0, 0),
                                     Size = UDim2.new(0, 0, 0, 25),
                                     BackgroundTransparency = 1,
                                     Text = config.title,
@@ -230,7 +230,7 @@ Mercury={_instances={}} do
                             Size = UDim2.new(1, 0, 0, 25),
                             New"TextLabel"{
                                 Name = "Label",
-                                Position = UDim2.new(0, 15, 0, -2),
+                                Position = UDim2.new(0, 15, 0, 0),
                                 Size = UDim2.new(0, 0, 0, 25),
                                 BackgroundTransparency = 1,
                                 Text = config.title,
