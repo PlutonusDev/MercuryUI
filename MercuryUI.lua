@@ -122,8 +122,8 @@ Mercury={_instances={}} do
             function config:addPage(config)
                 config = config or {}
                 setmetatable(config,{__index=Mercury.Page.prototype})
-                config._link = self
-                if not self._cpage then self._cpage=config.title end
+                if not self._cpage and not config.dropdown then self._cpage=config.title end
+                self._pages[config.title] = config
                 New"Frame"{
                     Name = config.title,
                     Parent = self._link.MainFrame.SideBar,
@@ -199,8 +199,31 @@ Mercury={_instances={}} do
                                 }
                             }
                         end
+                    end,
+                    [New]=function(this)
+                        config._link = this
                     end
                 }
+
+                function config:addItem(config)
+                    config = config or {}
+                    setmetatable(config,{__index=Mercury.Item.prototype})
+                    self._items[config.title] = config
+                    New"Frame"{
+                        Name = config.title,
+                        Parent = config._link,
+                        BackgroundTransparency = 1,
+                        Size = UDim2.new(1, 0, 0, 20),
+                        New"TextButton"{
+                            Name = "Content",
+                            Parent = this,
+                            BackgroundColor3 = self.color.accent,
+                            Text = "",
+                            BorderSizePixel = 0,
+                            Size = UDim2.new(1, 0, 0, 20),
+                        }
+                    }
+                end
             end
 			return config
         end
@@ -212,6 +235,14 @@ Mercury={_instances={}} do
             dropdown = false,
             _open = false,
             _items = {},
+            _tabs = {},
+            _link = nil
+        }
+    }
+    Mercury.Item = {
+        prototype = {
+            title = "New Item",
+            font = "akashi",
             _tabs = {},
             _link = nil
         }
