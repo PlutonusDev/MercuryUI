@@ -367,7 +367,8 @@ Mercury={_instances={}} do
                                                 Size = UDim2.new(0.5, 0, 1, 0),
                                                 BackgroundTransparency = 1
                                             }
-                                        elseif config.layout==2 then
+                                        end
+                                        if config.layout==2 then
                                             New"UIListLayout"{
                                                 Name = "DisplayLayout",
                                                 Parent = this,
@@ -413,7 +414,7 @@ Mercury={_instances={}} do
             title = "New Selector",
             font = "akashi",
             type = false,
-            layout = Mercury.Enum.LayoutType.Full
+            layout = Mercury.Enum.LayoutType.Full,
             _open = false,
             _debounce = false,
             _inst = nil,
