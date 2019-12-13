@@ -192,6 +192,37 @@ Mercury={_instances={}} do
                                     end)
                                 end
                             }
+                            function config:addItem(config)
+                                config = config or {}
+                                setmetatable(config,{__index=Mercury.Item.prototype})
+                                self._items[config.title] = config
+                                config._link = self
+                                New"Frame"{
+                                    Name = config.title,
+                                    Parent = config._link._inst,
+                                    BackgroundTransparency = 1,
+                                    Size = UDim2.new(1, 0, 0, 20),
+                                    New"TextButton"{
+                                        Name = "Content",
+                                        BackgroundColor3 = config._link._link.color.accent,
+                                        Text = "",
+                                        BorderSizePixel = 0,
+                                        Size = UDim2.new(1, 0, 0, 25),
+                                        New"TextLabel"{
+                                            Name = "Label",
+                                            Position = UDim2.new(0, 15, 0, 0),
+                                            Size = UDim2.new(0, 0, 0, 25),
+                                            BackgroundTransparency = 1,
+                                            Text = config.title,
+                                            TextColor3 = config._link._link.color.title,
+                                            TextSize = 18,
+                                            TextXAlignment = Enum.TextXAlignment.Left,
+                                            [New]=function(this)if config.font then this = Fonts._GEN.Replace(config.font, this) end end
+                                        }
+                                    }
+                                }
+                                return config
+                            end
                         else
                             New"TextButton"{
                                 Name = "Content",
@@ -239,38 +270,6 @@ Mercury={_instances={}} do
                         config._inst = this
                     end
                 }
-
-                function config:addItem(config)
-                    config = config or {}
-                    setmetatable(config,{__index=Mercury.Item.prototype})
-                    self._items[config.title] = config
-                    config._link = self
-                    New"Frame"{
-                        Name = config.title,
-                        Parent = config._link._inst,
-                        BackgroundTransparency = 1,
-                        Size = UDim2.new(1, 0, 0, 20),
-                        New"TextButton"{
-                            Name = "Content",
-                            BackgroundColor3 = config._link._link.color.accent,
-                            Text = "",
-                            BorderSizePixel = 0,
-                            Size = UDim2.new(1, 0, 0, 25),
-                            New"TextLabel"{
-                                Name = "Label",
-                                Position = UDim2.new(0, 15, 0, 0),
-                                Size = UDim2.new(0, 0, 0, 25),
-                                BackgroundTransparency = 1,
-                                Text = config.title,
-                                TextColor3 = config._link._link.color.title,
-                                TextSize = 18,
-                                TextXAlignment = Enum.TextXAlignment.Left,
-                                [New]=function(this)if config.font then this = Fonts._GEN.Replace(config.font, this) end end
-                            }
-                        }
-                    }
-                    return config
-                end
                 return config
             end
 			return config
