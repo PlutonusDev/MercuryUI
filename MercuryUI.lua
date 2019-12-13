@@ -258,7 +258,7 @@ Mercury={_instances={}} do
                                     New"TextLabel"{
                                         Name = "Title",
                                         AnchorPoint = Vector2.new(.5, 0),
-                                        Position = UDim2.new(0.5, 0, 0, 15),
+                                        Position = UDim2.new(0.5, 0, 0, 5),
                                         Size = UDim2.new(0, 0, 0, 25),
                                         BackgroundTransparency = 1,
                                         Text = config.title,
@@ -323,13 +323,19 @@ Mercury={_instances={}} do
                                 New"TextLabel"{
                                     Name = "Title",
                                     AnchorPoint = Vector2.new(.5, 0),
-                                    Position = UDim2.new(0.5, 0, 0, 15),
+                                    Position = UDim2.new(0.5, 0, 0, 5),
                                     Size = UDim2.new(0, 0, 0, 25),
                                     BackgroundTransparency = 1,
                                     Text = config.title,
                                     TextColor3 = config._link.color.label,
                                     TextSize = 18,
                                     [New]=function(this)this = Fonts._GEN.Replace(Mercury.Enum.Font.Akashi, this) end
+                                },
+                                New"Frame"{
+                                    Name = "Container",
+                                    Position = UDim2.new(0, 0, 0, 35),
+                                    Size = UDim2.new(1, 0, 1, -35),
+                                    BackgroundTransparency = 1
                                 },
                                 [New]=function(this)
                                     if config._link._cpage == config.title then this.Visible = true end
