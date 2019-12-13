@@ -210,7 +210,7 @@ Mercury={_instances={}} do
                                 config = config or {}
                                 setmetatable(config,{__index=Mercury.Item.prototype})
                                 self._items[config.title] = config
-                                config._link = self
+                                config._link = self._link
                                 New"Frame"{
                                     Name = config.title,
                                     Parent = this,
@@ -235,8 +235,8 @@ Mercury={_instances={}} do
                                         },
                                         [New]=function(this)
                                             this.MouseButton1Click:connect(function()
-                                                if config._link._link._cpage == config.title then return end
-                                                config._link._link._cpage = config.title
+                                                if config._link._cpage == config.title then return end
+                                                config._link._cpage = config.title
                                                 for k,v in pairs(config._link._pages) do
                                                     if k~=config.title then
                                                         if config._link._pages[k]._body then config._link._pages[k]._body.Visible = false end
@@ -244,7 +244,7 @@ Mercury={_instances={}} do
                                                         if config._link._pages[k]._body then config._link._pages[k]._body.Visible = true end
                                                     end
                                                 end
-                                                if config._body then config._body.Visible = true end
+                                                if config._link._body then config._link._body.Visible = true end
                                             end)
                                         end
                                     }
