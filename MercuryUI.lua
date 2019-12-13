@@ -234,7 +234,7 @@ Mercury={_instances={}} do
                                         Size = UDim2.new(0, 0, 0, 25),
                                         BackgroundTransparency = 1,
                                         Text = config.title,
-                                        TextColor3 = self.color.title,
+                                        TextColor3 = config._link._link.color.title,
                                         TextSize = 18,
                                         [New]=function(this)if config.font then this = Fonts._GEN.Replace(config.font, this) end end
                                     },
