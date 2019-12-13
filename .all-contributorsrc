@@ -1,0 +1,27 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "PlutonusDev",
+      "name": "Joshua Hughes",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/46195982?v=4",
+      "profile": "https://plutonus.codes/",
+      "contributions": [
+        "code",
+        "plugin",
+        "maintenance",
+        "test"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "MercuryUI",
+  "projectOwner": "PlutonusDev",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
