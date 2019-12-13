@@ -302,8 +302,10 @@ Mercury={_instances={}} do
                                         this.MouseButton1Click:connect(function()
                                             for k,v in pairs(config._link) do
                                                 print("> ",k,v)
-                                                for l,w in pairs(v) do
-                                                    print("> > ",l,w)
+                                                if typeof(v)=="table" then
+                                                    for l,w in pairs(v) do
+                                                        print("> > ",l,w)
+                                                    end
                                                 end
                                             end
                                             if config._link._link._cpage == config.title then return end
