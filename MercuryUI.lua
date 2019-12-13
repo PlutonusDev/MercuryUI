@@ -237,11 +237,6 @@ Mercury={_instances={}} do
                                             this.MouseButton1Click:connect(function()
                                                 if config._link._link._cpage == config.title then return end
                                                 config._link._link._cpage = config.title
-                                                for k,v in pairs(config._link._items) do
-                                                    if k~=config.title then
-                                                        if config._link._items[k]._body then config._link._items[k]._body.Visible = false end
-                                                    end
-                                                end
                                                 for k,v in pairs(config._link._link._pages) do
                                                     if k~=config.title then
                                                         if config._link._link._pages[k]._body then config._link._link._pages[k]._body.Visible = false end
