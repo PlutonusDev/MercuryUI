@@ -6,6 +6,7 @@
         <img src="https://img.shields.io/github/last-commit/PlutonusDev/MercuryUI.svg">
         <img src="http://hits.dwyl.io/PlutonusDev/MercuryUI.svg">
         <img src="https://github-size-badge.herokuapp.com/PlutonusDev/MercuryUI.svg">
+        <img src="https://david-dm.org/PlutonusDev/MercuryUI/status.svg">
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
